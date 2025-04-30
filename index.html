@@ -57,10 +57,8 @@
 
     <div class="project">
         <h3>Interactive Pricing Table</h3>
-        <img class="pricing" src="pricing.png" alt="YouTube Clone Screenshot" data-aos="fade-up"/>
-        <p>
-            An interactive pricing table that allows users to toggle between monthly and yearly pricing. This project showcases my skills in JavaScript and CSS transitions, enhancing user experience through interactivity.</p>
-        </p>
+        <img class="pricing" src="pricing.png" alt="Interactive Pricing Table Screenshot" data-aos="fade-up"/>
+        <p>An interactive pricing table that allows users to toggle between monthly and yearly pricing. This project showcases my skills in JavaScript and CSS transitions, enhancing user experience through interactivity.</p>
         <a href="https://github.com/joaopfizz/Pricing-table">GitHub</a> <a class="live-demo" href="#"> </a>
         <button class="preview-btn">Preview</button>
         <div class="modal">
@@ -73,10 +71,8 @@
 
       <div class="project">
         <h3>Portfolio</h3>
-        <img class="pricing" src="site.png" alt="YouTube Clone Screenshot" data-aos="fade-up"/>
-        <p>
-            This website was designed and built from scratch to showcase my development and design skills. It uses HTML, CSS, JavaScript, and AOS.js for animations.</p>
-        </p>
+        <img class="pricing" src="site.png" alt="Portfolio Screenshot" data-aos="fade-up"/>
+        <p>This website was designed and built from scratch to showcase my development and design skills. It uses HTML, CSS, JavaScript, and AOS.js for animations.</p>
         <a href="https://github.com/joaopfizz/Portfolio">GitHub</a> <a class="live-demo" href="#"> </a>
         <button class="preview-btn">Preview</button>
         <div class="modal">
@@ -101,7 +97,6 @@
       <li>Spring (Java), SQL, Scrum</li>
       <li>Python Avançado & Python para Data Science – Codecademy</li>
       <li>HTML, CSS, JavaScript & PHP – Codecademy</li>
-
     </ul>
   </section>
 
@@ -122,10 +117,32 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
+
+    // Initialize EmailJS with your User ID (replace with your actual User ID)
+    emailjs.init("IpPZz5SnplP6HPLZR"); // Replace with your actual EmailJS User ID
+
+    // Handle form submission
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Send the form data using EmailJS
+      emailjs.sendForm("service_w4qnps6", "template_whhka7h", this) // Replace "YOUR_TEMPLATE_ID" with your actual Template ID
+        .then(function(response) {
+          alert("Message sent successfully!"); // Success message
+          console.log(response);
+        }, function(error) {
+          alert("Failed to send message. Please try again."); // Error message
+          console.log(error); // Log the error (if any)
+        });
+      
+      // Thank you message and reset form
+      alert("Thank you for your message! I'll get back to you soon.");
+      this.reset(); // Reset the form after submission
+    });
   </script>
-  <script src="script.js"></script>
 </body>
 </html>
